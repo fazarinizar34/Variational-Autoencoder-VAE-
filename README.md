@@ -89,22 +89,28 @@ VAE berhasil mempelajari latent space yang **kontinu dan smooth**, sehingga coco
 
 ---
 
-### 2. Perbandingan Rekonstruksi VAE dan AE (`VAE VS SA.png`)
+### 2. Perbandingan Gambar Asli, Rekonstruksi VAE, dan Rekonstruksi AE (`VAE VS SA.png`)
 
-![Perbandingan Rekonstruksi VAE dan AE](VAE VS SA.png)
+![Perbandingan Gambar Asli, VAE, dan AE](VAE VS SA.png)
 
-Gambar ini memperlihatkan perbandingan hasil rekonstruksi antara **VAE** dan **Autoencoder (AE)**.
+Gambar ini menunjukkan **perbandingan langsung antara data asli dan hasil rekonstruksi** dari dua model yang berbeda, yaitu Variational Autoencoder (VAE) dan Autoencoder (AE).
 
-**Susunan baris gambar:**
+**Struktur gambar (dari atas ke bawah):**
 
-* Baris 1: Gambar asli (input)
-* Baris 2: Rekonstruksi VAE (halus/blurry)
-* Baris 3: Rekonstruksi AE (lebih tajam)
+1. **Gambar Asli (Original)**
+   Citra input Fashion-MNIST yang digunakan sebagai data masukan model.
 
-**Analisis:**
+2. **Rekonstruksi VAE**
+   Hasil decoding dari latent space VAE. Terlihat lebih halus (blurry) karena VAE memaksakan distribusi laten mengikuti distribusi normal.
 
-* VAE menghasilkan gambar lebih halus karena adanya regularisasi distribusi laten.
-* AE menghasilkan rekonstruksi lebih tajam karena bersifat deterministik.
+3. **Rekonstruksi AE**
+   Hasil rekonstruksi Autoencoder standar. Tampilan lebih tajam karena AE bersifat deterministik tanpa regularisasi probabilistik.
+
+**Analisis Perbandingan:**
+
+* VAE unggul dalam generalisasi dan pembentukan latent space terstruktur.
+* AE unggul dalam ketajaman visual rekonstruksi.
+* Perbedaan ini menunjukkan trade-off antara kualitas visual dan kemampuan generatif.
 
 ---
 
@@ -154,3 +160,4 @@ Visualisasi ini menunjukkan bahwa VAE mampu menangkap struktur global dan hubung
 * NumPy
 * Matplotlib
 * Google Colab
+

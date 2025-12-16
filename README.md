@@ -72,68 +72,78 @@ Dataset ini dipilih karena kompleksitasnya lebih tinggi dibanding MNIST angka, s
 
 ## Hasil dan Visualisasi
 
-### 1. Grid Interpolasi Latent Space
+### 1. Grid Interpolasi Latent Space VAE (`GRID VA.png`)
 
-Gambar `GRID VA.png` menampilkan interpolasi grid 2D pada latent space VAE. Setiap sumbu merepresentasikan satu dimensi laten. Perubahan visual yang halus menunjukkan bahwa VAE berhasil mempelajari latent space yang **kontinu dan terstruktur**.
+![Grid Interpolasi Latent Space VAE](GRID VA.png)
 
-**Insight:**
+Gambar ini menampilkan **grid interpolasi 2D** dari latent space VAE. Setiap titik pada grid merupakan hasil decoding vektor laten (z = (z1, z2)) yang nilainya berubah secara bertahap.
 
-* Transisi antar bentuk objek terjadi secara gradual.
-* Tidak terdapat perubahan ekstrem antar titik berdekatan.
+**Penjelasan:**
+
+* Sumbu horizontal merepresentasikan dimensi laten pertama.
+* Sumbu vertikal merepresentasikan dimensi laten kedua.
+* Perubahan bentuk objek (tas, pakaian, sepatu) terjadi secara halus.
+
+**Kesimpulan:**
+VAE berhasil mempelajari latent space yang **kontinu dan smooth**, sehingga cocok untuk generasi data baru.
 
 ---
 
-### 2. Perbandingan Rekonstruksi (VAE vs AE)
+### 2. Perbandingan Rekonstruksi VAE dan AE (`VAE VS SA.png`)
 
-Gambar `VAE VS SA.png` memperlihatkan:
+![Perbandingan Rekonstruksi VAE dan AE](VAE VS SA.png)
 
-* Baris 1: Gambar asli
-* Baris 2: Rekonstruksi VAE (lebih halus/blurry)
+Gambar ini memperlihatkan perbandingan hasil rekonstruksi antara **VAE** dan **Autoencoder (AE)**.
+
+**Susunan baris gambar:**
+
+* Baris 1: Gambar asli (input)
+* Baris 2: Rekonstruksi VAE (halus/blurry)
 * Baris 3: Rekonstruksi AE (lebih tajam)
 
-**Insight:**
+**Analisis:**
 
-* AE menghasilkan rekonstruksi lebih tajam.
-* VAE menghasilkan rekonstruksi lebih halus karena regularisasi distribusi laten.
-* Trade-off antara kualitas visual dan kemampuan generatif.
+* VAE menghasilkan gambar lebih halus karena adanya regularisasi distribusi laten.
+* AE menghasilkan rekonstruksi lebih tajam karena bersifat deterministik.
 
 ---
 
-### 3. Latent Space Arithmetic
+### 3. Latent Space Arithmetic (`LSA.png`)
 
-Gambar `LSA.png` menunjukkan operasi:
+![Latent Space Arithmetic](LSA.png)
+
+Gambar ini menunjukkan eksperimen **aritmetika pada latent space** dengan operasi:
 
 ```
 (Mean Ankle boot − Mean Sandal) + Mean T-shirt/top
 ```
 
-Hasilnya adalah citra baru yang mencerminkan transformasi fitur dari sepatu ke bentuk pakaian.
+**Penjelasan:**
 
-**Insight:**
+* Setiap kelas direpresentasikan sebagai rata-rata vektor laten.
+* Operasi vektor dilakukan di latent space.
+* Hasil decoding menunjukkan citra baru hasil kombinasi konsep.
 
-* Latent space VAE bersifat semantik.
-* Operasi vektor dapat merepresentasikan perubahan konsep visual.
-
----
-
-### 4. Visualisasi Distribusi Latent Space 2D
-
-Gambar `2D.png` menampilkan sebaran latent space 2D dengan pewarnaan berdasarkan kelas Fashion-MNIST.
-
-**Insight:**
-
-* Beberapa kelas membentuk klaster yang jelas (misalnya sepatu dan tas).
-* Kelas pakaian memiliki overlap, menunjukkan kemiripan visual.
-* Menunjukkan VAE mampu menangkap struktur global data.
+**Kesimpulan:**
+Latent space VAE bersifat **semantik**, di mana operasi matematika merepresentasikan perubahan makna visual.
 
 ---
 
-## Kesimpulan
+### 4. Distribusi Latent Space 2D (`2D.png`)
 
-* Variational Autoencoder berhasil mempelajari representasi laten yang kontinu dan bermakna.
-* Dibanding AE, VAE unggul dalam eksplorasi dan generasi data baru.
-* Latent space arithmetic membuktikan adanya representasi semantik dalam ruang laten.
-* Visualisasi 2D membantu memahami hubungan antar kelas.
+![Distribusi Latent Space 2D](2D.png)
+
+Gambar ini memperlihatkan sebaran latent space 2D dari seluruh data Fashion-MNIST, dengan warna berbeda untuk setiap kelas.
+
+**Penjelasan:**
+
+* Setiap titik merepresentasikan satu data citra.
+* Warna menunjukkan label kelas.
+* Beberapa kelas membentuk klaster yang jelas (sepatu, tas).
+* Kelas pakaian memiliki overlap karena kemiripan visual.
+
+**Kesimpulan:**
+Visualisasi ini menunjukkan bahwa VAE mampu menangkap struktur global dan hubungan antar kelas dalam ruang laten.
 
 ---
 
@@ -144,19 +154,3 @@ Gambar `2D.png` menampilkan sebaran latent space 2D dengan pewarnaan berdasarkan
 * NumPy
 * Matplotlib
 * Google Colab
-
----
-
-## Catatan
-
-Notebook ini dirancang untuk keperluan **pembelajaran dan eksplorasi konsep deep generative model**, khususnya Variational Autoencoder.
-
-Jika Anda tertarik mengembangkan lebih lanjut, eksperimen dapat diperluas ke:
-
-* Latent dimension lebih tinggi
-* Conditional VAE (CVAE)
-* Dataset lain (misalnya CIFAR-10)
-
----
-
-📌 *Silakan gunakan README ini sebagai dokumentasi utama saat mengunggah proyek ke GitHub.*

@@ -74,7 +74,7 @@ Dataset ini dipilih karena kompleksitasnya lebih tinggi dibanding MNIST angka, s
 
 ### 1. Grid Interpolasi Latent Space VAE (`GRID VA.png`)
 
-![Grid Interpolasi Latent Space VAE](GRID VA.png)
+![Grid Interpolasi Latent Space VAE](GRID_VA.png)
 
 Gambar ini menampilkan **grid interpolasi 2D** dari latent space VAE. Setiap titik pada grid merupakan hasil decoding vektor laten (z = (z1, z2)) yang nilainya berubah secara bertahap.
 
@@ -91,7 +91,7 @@ VAE berhasil mempelajari latent space yang **kontinu dan smooth**, sehingga coco
 
 ### 2. Perbandingan Gambar Asli, Rekonstruksi VAE, dan Rekonstruksi AE (`VAE VS SA.png`)
 
-![Perbandingan Gambar Asli, VAE, dan AE](VAE VS SA.png)
+![Perbandingan Gambar Asli, VAE, dan AE](VAE_VS_SA.png)
 
 Gambar ini menunjukkan **perbandingan langsung antara data asli dan hasil rekonstruksi** dari dua model yang berbeda, yaitu Variational Autoencoder (VAE) dan Autoencoder (AE).
 
